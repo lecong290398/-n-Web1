@@ -1,4 +1,5 @@
 <?php
+session_start();
 include './mobile.php';
 $obj_mobile = new mobile();
 $mobiles  = $obj_mobile->getMobile();
@@ -7,6 +8,17 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $obj_mobile->deleteMobile($id);
 }
+// Login
+$flag = 0;
+if (isset($_SESSION['flag'])) {
+    $flag = $_SESSION['flag'];
+}
+if ($flag != 1)
+{
+    echo '<script>alert("The password you entered was not valid")</script>';
+     header('Location:  login.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,7 +66,7 @@ if (isset($_GET['id'])) {
 				<li class="divider"></li>
 				<li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
 				<li class="divider"></li>
-				<li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                                <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
 			</ul>
 		</li>
 		<li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
@@ -69,7 +81,7 @@ if (isset($_GET['id'])) {
 			</ul>
 		</li>
 		<li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-		<li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+                <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
 	</ul>
 </div>
 
@@ -165,4 +177,3 @@ if (isset($_GET['id'])) {
 <script src="public/js/matrix.tables.js"></script>
 </body>
 </html>
-
