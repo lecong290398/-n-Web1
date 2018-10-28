@@ -2,7 +2,7 @@
 session_start();
 include './account.php';
 
-$obj_user = new users();
+$obj_user = new account();
 
 if (!empty($_POST['username']) && (!empty($_POST['password']))) {
     $username = $_POST['username'];

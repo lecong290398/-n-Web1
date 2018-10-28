@@ -1,16 +1,9 @@
 <?php
 include './mobile.php';
+
 $mobile = new mobile();
 
-$key = $_GET['key'];
-$total_rows = $mobile->countSearch($key);
-$per_page = 5;
-if (isset($_GET['page'])) {
-    $page = $_GET['page'];
-} else {
-    $page = 1;
-}
-$search = $mobile->search($key, $page, $per_page);
+$producttype = $mobile->getAllProducttype();
 ?>
 
 <!DOCTYPE html>
@@ -27,54 +20,40 @@ $search = $mobile->search($key, $page, $per_page);
         <link rel="stylesheet" href="public/css/matrix-media.css" />
         <link href="public/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-        <style type="text/css">
-            ul.pagination{
-                list-style: none;
-                float: right;
-            }
-            ul.pagination li.active{
-                font-weight: bold
-            }
-            ul.pagination li{
-                float: left;
-                display: inline-block;
-                padding: 10px
-            }
-        </style>
     </head>
     <body>
 
         <!--Header-part-->
         <div id="header">
-            <h1><a href="dashboard.html">Dashboard</a></h1>
+            <h1><a href="index.php">Dashboard</a></h1>
         </div>
         <!--close-Header-part-->
 
         <!--top-Header-menu-->
         <div id="user-nav" class="navbar navbar-inverse">
             <ul class="nav">
-                <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome Super Admin</span><b class="caret"></b></a>
+                <li  class="dropdown" id="profile-messages" ><a title="" href="form.html" data-toggle="dropdown" data-target="form.htmlprofile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome Super Admin</span><b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><i class="icon-user"></i> My Profile</a></li>
+                        <li><a href="form.html"><i class="icon-user"></i> My Profile</a></li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
+                        <li><a href="form.html"><i class="icon-check"></i> My Tasks</a></li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                        <li><a href="logout.php"><i class="icon-key"></i> Log Out</a></li>
                     </ul>
                 </li>
-                <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+                <li class="dropdown" id="menu-messages"><a href="form.html" data-toggle="dropdown" data-target="form.htmlmenu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a class="sAdd" title="" href="#"><i class="icon-plus"></i> new message</a></li>
+                        <li><a class="sAdd" title="" href="form.html"><i class="icon-plus"></i> new message</a></li>
                         <li class="divider"></li>
-                        <li><a class="sInbox" title="" href="#"><i class="icon-envelope"></i> inbox</a></li>
+                        <li><a class="sInbox" title="" href="form.html"><i class="icon-envelope"></i> inbox</a></li>
                         <li class="divider"></li>
-                        <li><a class="sOutbox" title="" href="#"><i class="icon-arrow-up"></i> outbox</a></li>
+                        <li><a class="sOutbox" title="" href="form.html"><i class="icon-arrow-up"></i> outbox</a></li>
                         <li class="divider"></li>
-                        <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> trash</a></li>
+                        <li><a class="sTrash" title="" href="form.html"><i class="icon-trash"></i> trash</a></li>
                     </ul>
                 </li>
-                <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-                <li class=""><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+                <li class=""><a title="" href="form.html"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
+                <li class=""><a title="" href="logout.php"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
             </ul>
         </div>
 
@@ -89,65 +68,54 @@ $search = $mobile->search($key, $page, $per_page);
 
         <!--sidebar-menu-->
 
-        <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-th"></i>Tables</a>
+        <div id="sidebar"> <a href="form.html" class="visible-phone"><i class="icon icon-th"></i>Tables</a>
             <ul>
-                <li><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+                <li><a href="index.php"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li> 
+                <li> <a href="producttype.php"><i class="icon icon-th-list"></i> <span>Product Type</span></a></li>
+                <li> <a href="manufactures.php"><i class="icon icon-th-list"></i> <span>Manufactures</span></a></li>
 
-                <li> <a href="protype.html"><i class="icon icon-th-list"></i> <span>Product Type</span></a></li>
-                <li> <a href="manufactures.html"><i class="icon icon-th-list"></i> <span>Manufactures</span></a></li>
+
+
             </ul>
         </div>
         <!-- BEGIN CONTENT -->
         <div id="content">
             <div id="content-header">
                 <div id="breadcrumb"> <a href="index.php" title="Go to Home" class="tip-bottom current"><i class="icon-home"></i> Home</a></div>
-                <h1>Manage Products</h1>
+                <h1>Manage Products Type</h1>
             </div>
             <div class="container-fluid">
                 <hr>
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="widget-box">
-                            <div class="widget-title"> <span class="icon"><a href="form.html"> <i class="icon-plus"></i> </a></span>
+                            <div class="widget-title"> <span class="icon"><a href="form-add.php"> <i class="icon-plus"></i> </a></span>
                                 <h5>Products</h5>
                             </div>
                             <div class="widget-content nopadding">
                                 <table class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
-                                            <th></th>
-                                            <th>Name</th>
-                                            <th>Type</th>
-                                            <th>Manufactures</th>
-                                            <th>Description</th>
-                                            <th>Price (VND)</th>
+                                            <th>Product_Id</th>
+                                            <th>Product_Name</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($search as $row) : ?>
+                                        <?php foreach ($producttype as $type): ?>
                                             <tr class="">
-                                                <td><img src="../public/images/<?php echo $row['image']; ?>" /></td>
-                                                <td><?php echo $row['name'] ?></td>
-                                                <td><?php echo $row['Type_name'] ?></td>
-                                                <td><?php echo $row['Manu_name'] ?></td>
-                                                <td><?php echo $row['description'] ?></td>
-                                                <td><?php echo $row['price'] ?></td>
+                                                <td><?php echo $type['Type_ID']; ?></td>
+                                                <td><?php echo $type['Type_name']; ?></td>
                                                 <td>
-                                                    <a href="form.html" class="btn btn-success btn-mini">Edit</a>
+                                                    <a href="#" class="btn btn-success btn-mini">Edit</a>
                                                     <a href="#" class="btn btn-danger btn-mini">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
+
+
                                     </tbody>
                                 </table>
-                                <ul class="pagination">
-                                    <?php
-                                    $base_url = $_SERVER['PHP_SELF'] . "?key=$key&";
-                                    echo $mobile->create_links($base_url, $total_rows, $page, $per_page);
-                                    ?>
-                                </ul>
-
                             </div>
                         </div>
                     </div>
@@ -155,6 +123,7 @@ $search = $mobile->search($key, $page, $per_page);
             </div>
         </div>
         <!-- END CONTENT -->
+
         <!--Footer-part-->
         <div class="row-fluid">
             <div id="footer" class="span12"> 2017 &copy; TDC - Lập trình web 1</div>
@@ -170,4 +139,3 @@ $search = $mobile->search($key, $page, $per_page);
         <script src="public/js/matrix.tables.js"></script>
     </body>
 </html>
-

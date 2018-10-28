@@ -1,6 +1,6 @@
 <?php
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'project-web1');
 define('DB_USER', 'root');
 define('DB_PASS', '');
+define('DB_NAME', 'doan_web1');
 
