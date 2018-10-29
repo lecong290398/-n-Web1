@@ -1,3 +1,9 @@
+<?php
+    include './products.php';
+    $obj_product = new product();
+    $id_product  = $_GET['id'];
+    $out_product = $obj_product->selectProductById($id_product);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,33 +36,33 @@
 							<nav class="main_nav">
 								<ul>
 									<li class="hassubs active">
-										<a href="index.html">Home</a>
+										<a href="index.php">Home</a>
 										<ul>
-											<li><a href="categories.html">Categories</a></li>
-											<li><a href="product.html">Product</a></li>
-											<li><a href="cart.html">Cart</a></li>
-											<li><a href="checkout.html">Check out</a></li>
-											<li><a href="contact.html">Contact</a></li>
+											<li><a href="categories.php">Categories</a></li>
+											<li><a href="product.php">Product</a></li>
+											<li><a href="cart.php">Cart</a></li>
+											<li><a href="checkout.php">Check out</a></li>
+											<li><a href="contact.php">Contact</a></li>
 										</ul>
 									</li>
 									<li class="hassubs">
-										<a href="categories.html">Categories</a>
+										<a href="categories.php">Categories</a>
 										<ul>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
-											<li><a href="categories.html">Category</a></li>
+											<li><a href="categories.php">Category</a></li>
+											<li><a href="categories.php">Category</a></li>
+											<li><a href="categories.php">Category</a></li>
+											<li><a href="categories.php">Category</a></li>
+											<li><a href="categories.php">Category</a></li>
 										</ul>
 									</li>
 									<li><a href="#">Accessories</a></li>
 									<li><a href="#">Offers</a></li>
-									<li><a href="contact.html">Contact</a></li>
+									<li><a href="contact.php">Contact</a></li>
 								</ul>
 							</nav>
 							<div class="header_extra ml-auto">
 								<div class="shopping_cart">
-									<a href="cart.html">
+									<a href="cart.php">
 										<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 												 viewBox="0 0 489 489" style="enable-background:new 0 0 489 489;" xml:space="preserve">
 											<g>
@@ -67,7 +73,7 @@
 													c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-41h45.2l26.9,302.3C412.8,445.2,392.1,462,366.8,462z"/>
 											</g>
 										</svg>
-										<div>Cart <span>(0)</span></div>
+                                                                                <div>Cart <span>(0)</span></div>
 									</a>
 								</div>
 								<div class="search">
@@ -138,27 +144,27 @@
 				</div>
 				<ul class="page_menu_nav menu_mm">
 					<li class="page_menu_item has-children menu_mm">
-						<a href="index.html">Home<i class="fa fa-angle-down"></i></a>
+						<a href="index.php">Home<i class="fa fa-angle-down"></i></a>
 						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="categories.html">Categories<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="product.html">Product<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="cart.html">Cart<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="checkout.html">Checkout<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="categories.php">Categories<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="product.php">Product<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="cart.php">Cart<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="checkout.php">Checkout<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="contact.php">Contact<i class="fa fa-angle-down"></i></a></li>
 						</ul>
 					</li>
 					<li class="page_menu_item has-children menu_mm">
-						<a href="categories.html">Categories<i class="fa fa-angle-down"></i></a>
+						<a href="categories.php">Categories<i class="fa fa-angle-down"></i></a>
 						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="categories.html">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="categories.php">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="categories.php">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="categories.php">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="categories.php">Category<i class="fa fa-angle-down"></i></a></li>
 						</ul>
 					</li>
-					<li class="page_menu_item menu_mm"><a href="index.html">Accessories<i class="fa fa-angle-down"></i></a></li>
+					<li class="page_menu_item menu_mm"><a href="index.php">Accessories<i class="fa fa-angle-down"></i></a></li>
 					<li class="page_menu_item menu_mm"><a href="#">Offers<i class="fa fa-angle-down"></i></a></li>
-					<li class="page_menu_item menu_mm"><a href="contact.html">Contact<i class="fa fa-angle-down"></i></a></li>
+					<li class="page_menu_item menu_mm"><a href="contact.php">Contact<i class="fa fa-angle-down"></i></a></li>
 				</ul>
 			</div>
 		</div>
@@ -204,7 +210,7 @@
 				<!-- Product Image -->
 				<div class="col-lg-6">
 					<div class="details_image">
-						<div class="details_image_large"><img src="images/details_1.jpg" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
+                                            <div class="details_image_large"><img src="images/<?php echo $out_product[0]['image']; ?>" alt=""><div class="product_extra product_new"><a href="categories.php">New</a></div></div>
 						<div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
 							<div class="details_image_thumbnail active" data-image="images/details_1.jpg"><img src="images/details_1.jpg" alt=""></div>
 							<div class="details_image_thumbnail" data-image="images/details_2.jpg"><img src="images/details_2.jpg" alt=""></div>
@@ -217,9 +223,9 @@
 				<!-- Product Content -->
 				<div class="col-lg-6">
 					<div class="details_content">
-						<div class="details_name">Smart Phone</div>
+                                            <div class="details_name"><?php echo $out_product[0]['name']; ?></div>
 						<div class="details_discount">$890</div>
-						<div class="details_price">$670</div>
+						<div class="details_price"><?php echo $out_product[0]['price']; ?> VNĐ</div>
 
 						<!-- In Stock -->
 						<div class="in_stock_container">
@@ -227,20 +233,20 @@
 							<span>In Stock</span>
 						</div>
 						<div class="details_text">
-							<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.</p>
+							<p><?php echo $out_product[0]['description']; ?></p>
 						</div>
 
 						<!-- Product Quantity -->
 						<div class="product_quantity_container">
 							<div class="product_quantity clearfix">
 								<span>Qty</span>
-								<input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+                                                                <input id="quantity_input" name="cart_input" type="text" pattern="[0-9]*" value="1">
 								<div class="quantity_buttons">
 									<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
 									<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 								</div>
 							</div>
-							<div class="button cart_button"><a href="#">Add to cart</a></div>
+                                                    <div class="button cart_button"><a href="product.php?num_cart=<?php echo $_GET['cart_input']; ?>">Add to cart</a></div>
 						</div>
 
 						<!-- Share -->
@@ -288,9 +294,9 @@
 						<!-- Product -->
 						<div class="product">
 							<div class="product_image"><img src="images/product_1.jpg" alt=""></div>
-							<div class="product_extra product_new"><a href="categories.html">New</a></div>
+							<div class="product_extra product_new"><a href="categories.php">New</a></div>
 							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
+								<div class="product_title"><a href="product.php">Smart Phone</a></div>
 								<div class="product_price">$670</div>
 							</div>
 						</div>
@@ -298,9 +304,9 @@
 						<!-- Product -->
 						<div class="product">
 							<div class="product_image"><img src="images/product_2.jpg" alt=""></div>
-							<div class="product_extra product_sale"><a href="categories.html">Sale</a></div>
+							<div class="product_extra product_sale"><a href="categories.php">Sale</a></div>
 							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
+								<div class="product_title"><a href="product.php">Smart Phone</a></div>
 								<div class="product_price">$520</div>
 							</div>
 						</div>
@@ -309,7 +315,7 @@
 						<div class="product">
 							<div class="product_image"><img src="images/product_3.jpg" alt=""></div>
 							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
+								<div class="product_title"><a href="product.php">Smart Phone</a></div>
 								<div class="product_price">$710</div>
 							</div>
 						</div>
@@ -318,7 +324,7 @@
 						<div class="product">
 							<div class="product_image"><img src="images/product_4.jpg" alt=""></div>
 							<div class="product_content">
-								<div class="product_title"><a href="product.html">Smart Phone</a></div>
+								<div class="product_title"><a href="product.php">Smart Phone</a></div>
 								<div class="product_price">$330</div>
 							</div>
 						</div>
