@@ -18,8 +18,8 @@
              return $data;
         }
         public function getPage($p){
-            $n = ($p - 1) * 8;
-            $sql = 'SELECT * FROM products LIMIT '.$n.',8';
+            $n = ($p - 1) * 5;
+            $sql = 'SELECT * FROM products LIMIT '.$n.',5';
             $products = $this->select($sql);
             return $products;
         }

@@ -367,7 +367,7 @@
             <ul>
              <!-- neu tim liem thi khong phan trang -->
             <?php if (!isset($_GET['search'])): ?>
-            <?php for($i = $num_row, $j = 1; $i >= 0; $i = $i - 8, $j++): ?>
+            <?php for($i = $num_row, $j = 1; $i >= 0; $i = $i - 5, $j++): ?>
                 <li>
                     <a href="index.php?p=<?php echo $j; ?>"><?php echo $j; ?></a>
                 </li>           
